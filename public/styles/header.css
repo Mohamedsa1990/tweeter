@@ -1,0 +1,11 @@
+header.topheader {
+  margin-top: 120px;
+  height: 400px;
+  width: 100%;
+  background-color:	#FFA500;
+  background-image: url("https://www.transparenttextures.com/patterns/grey-jean.png");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

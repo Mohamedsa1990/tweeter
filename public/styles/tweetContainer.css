@@ -1,0 +1,46 @@
+.tweet {
+  opacity: 0.7;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border: 3px solid #545149;
+}
+
+#profileAndName {
+  display: flex;
+  justify-content: space-around;
+}
+
+#username {
+  opacity: 0;
+  color: #B1B0B6;
+  font-weight: bolder;
+}
+
+#tweetHeader {
+  padding: 0.25em;
+  display: flex;
+  justify-content: space-between;
+}
+
+#tweetBody {
+  margin-left: 1%;
+  margin-right: 1%;
+  border-bottom: 3px solid #545149;
+  font-weight: 600;
+}
+
+#tweetFooter {
+  padding: 10px;
+  font-weight: bolder;
+  font-size: small;
+}
+
+.tweet:hover {
+  opacity: 1;
+  box-shadow: 10px 10px grey;
+}
+
+
+.tweet:hover #username {
+  opacity: 1;
+}
