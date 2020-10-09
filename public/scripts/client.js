@@ -60,22 +60,22 @@ $(document).ready(() => {
 
 
   function time2TimeAgo(ts) {
-    const tsInSecond = Math.floor(ts/1000)
+    const tsInSecond = Math.floor(ts / 1000);
     const d = new Date();
-    const nowTs = Math.floor(d.getTime()/1000); 
+    const nowTs = Math.floor(d.getTime() / 1000);
     const seconds = nowTs - tsInSecond;
-    if (seconds > (365*24*3600)) {
-      return `${Math.floor(seconds / (365 * 24 * 3600))} years ago`
+    if (seconds > (365 * 24 * 3600)) {
+      return `${Math.floor(seconds / (365 * 24 * 3600))} years ago`;
     } else if (seconds > (2 * 24 * 3600)) {
       return `${Math.floor(seconds / (24 * 3600))} days ago`;
-    } else if (seconds > (24*3600)) {
+    } else if (seconds > (24 * 3600)) {
       return "yesterday";
     } else if (seconds > 3600) {
-      return `${Math.floor(seconds/3600)} hours ago`;
+      return `${Math.floor(seconds / 3600)} hours ago`;
     } else if (seconds > 60) {
-      return `${Math.floor(seconds/60)} minutes ago`;
-    } else if (seconds < 60 ) {
-      return "just now"
+      return `${Math.floor(seconds / 60)} minutes ago`;
+    } else if (seconds < 60) {
+      return "just now";
     }
   }
 
