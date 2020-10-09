@@ -6,7 +6,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screen shots
 !["desktob page"] (https://github.com/Mohamedsa1990/tweeter/blob/master/public/images/desk1.png?raw=true)
-!["mobile page] ()
+
+!["mobile page] (https://github.com/Mohamedsa1990/tweeter/blob/master/public/images/mobile1.png?raw=true)
 
 ## Getting Started
 
