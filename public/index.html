@@ -21,15 +21,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="./scripts/client.js"></script>
+    <script defer type="text/javascript" src="./scripts/client.js"></script>
     <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
   </head>
 
   <body class="main">
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="logo">tweeter</span>
-      <span class="write"> <strong>Write</strong> a new tweet</span>
+      <div class="composeTweet">
+        <span class="write"> <strong>Write</strong> a new tweet</span>
+        <button type="button" id="ToggleButton"><img src="/images/classic-arrows.png" width="20px" height="20px"></button>
+      </div>
     </nav>
     <header class="main">
       <div>
@@ -44,9 +48,11 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets" >
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+        <span id="tooLongMessage" class="errorMessage"> ⚠️ Too Long Please Respect our arbitrary limit of 140 char❗❗ ⚠️ </span>
+        <span id="noTweetMessage" class="errorMessage"> ⚠️ Please Enter a Tweet❗❗ ⚠️ </span>
+        <!-- <h2>Compose Tweet</h2> -->
+        <form id="tweetForm" method="POST" action="/tweets" >
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?" wrap="hard" cols="70"></textarea>
           <div class="PostTweet">
             <button type="submit" class="button">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
@@ -56,38 +62,8 @@
       <section id="tweetContainer">
         <article class="tweet">
           <header>
-            <div class="profileAndName">
-              <img src="/images/profile-hex.png" width="50" height="50">
-              <Span>Mohammed Abdulbaqi</span>
-            </div>
-            <span id="username">@Mohammed</span>
-          </header>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis atque tempore officiis, veniam soluta voluptates, at saepe illo reprehenderit expedita voluptatum provident rerum praesentium ea vitae animi fugit! Asperiores, eveniet?
-          </p>
-          <footer>
-            <span>10 days ago</span>
-          </footer>
-        </article>
-        <article class="tweet">
-          <header>
-            <div class="profileAndName">
-              <img src="/images/profile-hex.png" width="50" height="50">
-              <Span>Mohammed Abdulbaqi</span>
-            </div>
-            <span id="username">@Mohammed</span>
-          </header>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis atque tempore officiis, veniam soluta voluptates, at saepe illo reprehenderit expedita voluptatum provident rerum praesentium ea vitae animi fugit! Asperiores, eveniet?
-          </p>
-          <footer>
-            <span>10 days ago</span>
-          </footer>
-        </article>
-        <article class="tweet">
-          <header>
-            <div class="profileAndName">
-              <img src="/images/profile-hex.png" width="50" height="50">
+            <div>
+              <img src="/images/profile-hex.png" width="50px" height="50px">
               <Span>Mohammed Abdulbaqi</span>
             </div>
             <span id="username">@Mohammed</span>

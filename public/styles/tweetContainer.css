@@ -5,34 +5,43 @@
   border: 3px solid #545149;
 }
 
-.profileAndName {
+.tweet header {
+  padding: 0.5em;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tweet header div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tweet header div span {
+  margin-left: 10px;
 }
 
 #username {
+  margin-right: 20px;
   opacity: 0;
   color: #B1B0B6;
   font-weight: bolder;
 }
 
-.tweet header {
-  padding: 0.25em;
-  display: flex;
-  justify-content: space-between;
-}
-
 .tweet p {
-  margin-left: 1%;
-  margin-right: 1%;
-  border-bottom: 3px solid #545149;
+  margin-left: 2%;
+  margin-right: 2%;
   font-weight: 600;
 }
 
 .tweet footer {
-  padding: 10px;
+  border-top: 3px solid #545149;
+  margin-left: 1%;
+  margin-right: 1%;
+  padding: 10px 0px 10px 20px;
   font-weight: bolder;
-  font-size: small;
+  font-size: 20px;
 }
 
 .tweet:hover {
