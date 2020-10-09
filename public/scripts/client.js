@@ -16,6 +16,7 @@ $(document).ready(() => {
   const createTweetElement = function(tweetObj) {
     const userInfo = tweetObj.user;
     const content = tweetObj.content.text;
+    const timeStamp = tweetObj.created_at;
     const tweetBody = `<article class="tweet">
             <header>
             <div class="profileAndName">
@@ -28,8 +29,13 @@ $(document).ready(() => {
             ${escape(content)}
           </p>
           <footer>
-            <span>${tweetObj.created_at}</span>
-          </footer>
+            <span>${time2TimeAgo(timeStamp)}</span>
+            <div class="userAction">
+              <img src="/images/like.png" width="20px" height="20px">
+              <img src="/images/retweet.png" width="20px" height="20px">
+              <img src="/images/flag.png" width="20px" height="20px">
+            </div>
+          </footer> 
         </article>`;
     return tweetBody;
   };
@@ -41,6 +47,37 @@ $(document).ready(() => {
     }
     return;
   };
+  // load tweet function
+  const loadtweets = function() {
+    // ajax GET request
+    $("#tweetContainer").empty();
+    $.get("/tweets", function(data) {
+      renderTweets(data);
+    });
+  };
+  //load the tweets for the first time
+  loadtweets();
+
+
+  function time2TimeAgo(ts) {
+    const tsInSecond = Math.floor(ts/1000)
+    const d = new Date();
+    const nowTs = Math.floor(d.getTime()/1000); 
+    const seconds = nowTs - tsInSecond;
+    if (seconds > (365*24*3600)) {
+      return `${Math.floor(seconds / (365 * 24 * 3600))} years ago`
+    } else if (seconds > (2 * 24 * 3600)) {
+      return `${Math.floor(seconds / (24 * 3600))} days ago`;
+    } else if (seconds > (24*3600)) {
+      return "yesterday";
+    } else if (seconds > 3600) {
+      return `${Math.floor(seconds/3600)} hours ago`;
+    } else if (seconds > 60) {
+      return `${Math.floor(seconds/60)} minutes ago`;
+    } else if (seconds < 60 ) {
+      return "just now"
+    }
+  }
 
 
   const $postTweet = $("#tweetForm");
@@ -53,7 +90,6 @@ $(document).ready(() => {
     // serialiaze the text data
     const serializedData = $(this).serialize();
     // form validation logic
-    console.log($("#tweet-text").val().length)
     if ($("#tweet-text").val().length > 140) {
       // toggle the error message
       $("#tooLongMessage").slideDown();
@@ -74,19 +110,11 @@ $(document).ready(() => {
 
   $("#ToggleButton").on("click", function() {
     $(".new-tweet").slideToggle();
+    $(".errorMessage").slideUp();
     $("#tweet-text").select();
     $("#tweet-text").val("");
     $(".counter").val(140);
   });
   
-  // load tweet function
-  const loadtweets = function() {
-    // ajax GET request
-    $.get("/tweets", function(data) {
-      renderTweets(data);
-    });
-  };
-  //load the tweets for the first time
-  loadtweets();
   
 });

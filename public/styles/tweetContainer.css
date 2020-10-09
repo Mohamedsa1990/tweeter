@@ -36,6 +36,8 @@
 }
 
 .tweet footer {
+  display: flex;
+  justify-content: space-between;
   border-top: 3px solid #545149;
   margin-left: 1%;
   margin-right: 1%;
@@ -44,12 +46,19 @@
   font-size: 20px;
 }
 
+.userAction {
+  opacity: 0;;
+}
+
 .tweet:hover {
   opacity: 1;
   box-shadow: 10px 10px grey;
 }
 
-
 .tweet:hover #username {
+  opacity: 1;
+}
+
+.tweet:hover .userAction {
   opacity: 1;
 }
