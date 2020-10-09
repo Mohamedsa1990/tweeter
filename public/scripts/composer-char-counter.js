@@ -1,3 +1,5 @@
+// char counter function
+
 $(document).ready(function() {
   $("#tweet-text").on("input",function() {
     $(".counter").val(140 - $("#tweet-text").val().length);

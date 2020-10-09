@@ -49,8 +49,8 @@ $(document).ready(() => {
   };
   // load tweet function
   const loadtweets = function() {
-    // ajax GET request
     $("#tweetContainer").empty();
+    // ajax GET request
     $.get("/tweets", function(data) {
       renderTweets(data);
     });
@@ -58,6 +58,7 @@ $(document).ready(() => {
   //load the tweets for the first time
   loadtweets();
 
+  // time stamp to time age function
 
   function time2TimeAgo(ts) {
     const tsInSecond = Math.floor(ts / 1000);
